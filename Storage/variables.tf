@@ -1,30 +1,35 @@
-variable "aws_region" {
-  type        = string
-  description = "AWS region"
+variable "ami_id" {
+  type = string
 }
 
-variable "vpc_id" {
-  type        = string
-  description = "VPC ID"
+variable "subnet_ids" {
+  type = list(string)
 }
 
-variable "private_subnets" {
-  type        = list(string)
-  description = "List of private subnet IDs"
+variable "sg_id" {
+  type = string
 }
 
-variable "azs" {
-  type        = list(string)
-  description = "List of availability zones"
+variable "instance_type" {
+  type    = string
+  default = "t3.medium"
 }
 
-variable "fdb_cluster_file" {
-  type        = string
-  description = "FoundationDB cluster file content"
+variable "instance_count" {
+  type    = number
+  default = 3
+}
+
+variable "env" {
+  type = string
+}
+
+variable "cluster_name" {
+  type = string
 }
 
 variable "datadog_api_key" {
-  type        = string
-  default     = ""
-  description = "Datadog API key for monitoring"
+  type      = string
+  default   = ""
+  sensitive = true
 }
