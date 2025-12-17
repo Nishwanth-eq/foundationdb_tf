@@ -20,6 +20,22 @@ variable "instance_count" {
   default = 3
 }
 
+variable "azs" {
+  type = list(string)
+}
+
+variable "fdb_version" {
+  type = string
+}
+
+variable "cluster_id" {
+  type = string
+}
+
+variable "fdb_cluster_file" {
+  type = string
+}
+
 variable "env" {
   type = string
 }
