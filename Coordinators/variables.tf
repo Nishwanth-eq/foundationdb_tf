@@ -1,14 +1,35 @@
-variable "ami_id" {}
-variable "subnet_ids" { type = list(string) }
-variable "sg_id" {}
-variable "instance_type" {}
-variable "instance_count" { type = number }
-variable "azs" { type = list(string) }
-variable "fdb_version" {}
-variable "cluster_id" {}
-variable "fdb_cluster_file" { type = string }
+variable "ami_id" {
+  type = string
+}
+
+variable "subnet_ids" {
+  type = list(string)
+}
+
+variable "sg_id" {
+  type = string
+}
+
+variable "instance_type" {
+  type    = string
+  default = "t3.medium"
+}
+
+variable "instance_count" {
+  type    = number
+  default = 3
+}
+
+variable "env" {
+  type = string
+}
+
+variable "cluster_name" {
+  type = string
+}
 
 variable "datadog_api_key" {
-  type    = string
-  default = ""
+  type      = string
+  default   = ""
+  sensitive = true
 }
