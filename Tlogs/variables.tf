@@ -20,12 +20,30 @@ variable "instance_count" {
   default = 3
 }
 
-variable "env" {
+variable "azs" {
+  type = list(string)
+}
+
+variable "fdb_version" {
   type = string
 }
 
-variable "cluster_name" {
+variable "cluster_id" {
   type = string
+}
+
+variable "fdb_cluster_file" {
+  type = string
+}
+
+variable "env" {
+  type    = string
+  default = ""
+}
+
+variable "cluster_name" {
+  type    = string
+  default = ""
 }
 
 variable "datadog_api_key" {
