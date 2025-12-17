@@ -37,11 +37,13 @@ variable "fdb_cluster_file" {
 }
 
 variable "env" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "cluster_name" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "datadog_api_key" {
