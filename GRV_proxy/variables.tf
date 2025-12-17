@@ -1,21 +1,30 @@
-variable "aws_region" {
-  type    = string
-  default = "us-east-1"
-}
-
-variable "vpc_id" {
+variable "ami_id" {
   type = string
 }
 
-variable "private_subnets" {
+variable "subnet_ids" {
   type = list(string)
 }
 
-variable "azs" {
-  type = list(string)
+variable "sg_id" {
+  type = string
 }
 
-variable "fdb_cluster_file" {
+variable "instance_type" {
+  type    = string
+  default = "t3.medium"
+}
+
+variable "instance_count" {
+  type    = number
+  default = 3
+}
+
+variable "env" {
+  type = string
+}
+
+variable "cluster_name" {
   type = string
 }
 
