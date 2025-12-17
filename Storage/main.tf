@@ -79,7 +79,7 @@ resource "aws_instance" "storage" {
 }
 
 resource "aws_ebs_volume" "storage_data" {
-  count             = 3
+  count             = var.instance_count
   availability_zone = var.azs[count.index]
   size              = 2000
   type              = "gp3"
