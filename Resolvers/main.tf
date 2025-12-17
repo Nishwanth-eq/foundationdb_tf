@@ -2,7 +2,7 @@ locals {
   role_class = "stateless"
 }
 resource "aws_instance" "this" {
-  count                = 1
+  count                = var.instance_count
   ami                  = data.aws_ami.ubuntu.id
   instance_type        = "c7g.large"
   iam_instance_profile = aws_iam_instance_profile.fdb_instance_profile.name
