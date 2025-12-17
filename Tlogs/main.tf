@@ -59,7 +59,7 @@ resource "aws_security_group" "tlogs_sg" {
 }
 
 resource "aws_instance" "tlogs" {
-  count                    = 4
+  count                    = var.instance_count
   ami                      = data.aws_ami.ubuntu.id
   instance_type            = "m7i.large"
   subnet_id                = var.private_subnets[count.index % 3]
