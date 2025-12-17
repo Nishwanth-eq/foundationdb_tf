@@ -59,7 +59,7 @@ resource "aws_security_group" "storage_sg" {
 }
 
 resource "aws_instance" "storage" {
-  count                    = 3
+  count                    = var.instance_count
   ami                      = data.aws_ami.ubuntu.id
   instance_type            = "m7i.large"
   subnet_id                = var.private_subnets[count.index]
@@ -92,7 +92,7 @@ resource "aws_ebs_volume" "storage_data" {
 }
 
 resource "aws_volume_attachment" "storage_data" {
-  count           = 3
+  count           = var.instance_count
   device_name     = "/dev/sdf"
   volume_id       = aws_ebs_volume.storage_data[count.index].id
   instance_id     = aws_instance.storage[count.index].id
