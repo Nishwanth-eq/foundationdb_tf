@@ -25,7 +25,7 @@ module "coordinators" {
   subnet_ids      = module.network.private_subnet_ids
   sg_id           = module.network.fdb_sg_id
   instance_type   = "t4g.small"
-  count           = 5
+  count           = instance_count = 5
   azs             = var.azs
   fdb_version     = var.fdb_version
   cluster_id      = var.cluster_id
@@ -49,7 +49,7 @@ module "commit_proxies" {
   subnet_ids      = module.network.private_subnet_ids
   sg_id           = module.network.fdb_sg_id
   instance_type   = "c7g.large"
-  count           = 3
+  count           = instance_count = 3
   azs             = var.azs
   fdb_version     = var.fdb_version
   cluster_id      = var.cluster_id
@@ -62,7 +62,7 @@ module "grv_proxy" {
   subnet_ids      = module.network.private_subnet_ids
   sg_id           = module.network.fdb_sg_id
   instance_type   = "c7g.large"
-  count           = 1
+  count           = instance_count = 1
   azs             = var.azs
   fdb_version     = var.fdb_version
   cluster_id      = var.cluster_id
@@ -75,7 +75,7 @@ module "resolvers" {
   subnet_ids      = module.network.private_subnet_ids
   sg_id           = module.network.fdb_sg_id
   instance_type   = "c7g.large"
-  count           = 1
+  count           = instance_count = 1
   azs             = var.azs
   fdb_version     = var.fdb_version
   cluster_id      = var.cluster_id
@@ -88,7 +88,7 @@ module "tlogs" {
   subnet_ids      = module.network.private_subnet_ids
   sg_id           = module.network.fdb_sg_id
   instance_type   = "m7i.large"
-  count           = 4
+  count           = instance_count = 4
   azs             = var.azs
   fdb_version     = var.fdb_version
   cluster_id      = var.cluster_id
@@ -101,7 +101,7 @@ module "storage" {
   subnet_ids      = module.network.private_subnet_ids
   sg_id           = module.network.fdb_sg_id
   instance_type   = "m7i.large"
-  count           = 3
+  count           = instance_count = 3
   azs             = var.azs
   fdb_version     = var.fdb_version
   cluster_id      = var.cluster_id
@@ -114,7 +114,7 @@ module "backup_obs" {
   subnet_ids      = module.network.private_subnet_ids
   sg_id           = module.network.fdb_sg_id
   instance_type   = "m7i.large"
-  count           = 1
+  count           = instance_count = 1
   azs             = var.azs
   fdb_version     = var.fdb_version
   cluster_id      = var.cluster_id
